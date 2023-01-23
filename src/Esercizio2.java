@@ -4,8 +4,10 @@ import java.sql.DriverManager;
 
 public class Esercizio2 {
     public static void main(String[] args) {
+        
+        System.out.println("Esercizio - SQl 02 - Table ");
+
         try{
-            System.out.println("Esercizio - SQl 02 - Table ");
 
 
             //MYSQL workbench :
@@ -32,6 +34,7 @@ public class Esercizio2 {
             System.out.println(resultSet.getString("last_name"));
             System.out.println("First name : ");
             System.out.println(resultSet.getString("first_name"));
+
 
         }
         }catch (Exception e){
