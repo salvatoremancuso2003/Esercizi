@@ -5,6 +5,7 @@ import java.sql.Statement;
 
 public class Esercizio4 {
     public static void main(String[] args) {
+        System.out.println("Esercizio - SQL 04 - Alter");
 
     try
 
