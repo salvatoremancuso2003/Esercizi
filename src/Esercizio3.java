@@ -1,7 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class Esercizio3 {
@@ -17,38 +14,27 @@ public class Esercizio3 {
                 Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newdb", "developer" , "Salvatore97");
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("select * from students");
-                while(resultSet.next()){
-                    System.out.println("Student id : " + resultSet.getString("student_id"));
-                    System.out.println("Last Name : " + resultSet.getString("last_name"));
-                    System.out.println("First name : " + resultSet.getString("first_name"));
 
-                    System.out.println("Array : ");
+                    ArrayList<String> surnames = new ArrayList<>();
+                    while (resultSet.next()) {
+                        String name = resultSet.getString("first_name");
+                        System.out.println(" - First name : " + name );
+                        String surname = resultSet.getString("last_name");
+                        System.out.println(" - Last name : " + surname);
+                        surnames.add(resultSet.getString("last_name"));
 
-                    ArrayList <String> surnames = new ArrayList<>();
-                    surnames.add(resultSet.getString("last_name"));
-                    System.out.println(surnames);
-
-
-
-
-
-
+                    }
+                    System.out.println(" ------------------ ");
+                    System.out.println("Array list of surnames:");
+                    for (String surname : surnames) {
+                        System.out.println(surname); }
 
 
-
-
-
-                }
 
             }catch (Exception e){
                 e.printStackTrace();
             }
 
 
-
-
-        }
-
-
-    }
+        }}
 
